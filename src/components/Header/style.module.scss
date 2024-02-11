@@ -8,10 +8,8 @@
   align-items: center;
   display: flex;
   gap: 48px;
+  justify-content: space-between;
   width: min(1080px, 100% - 12px * 2);
-  @media (width < 740px) {
-    justify-content: space-between;
-  }
 }
 
 .nav {
@@ -44,4 +42,7 @@
   background: #d96811;
   border-radius: 4px;
   padding: 12px 9px;
+  @media (740px <= width) {
+    display: none;
+  }
 }
