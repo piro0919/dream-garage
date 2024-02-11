@@ -1,0 +1,12 @@
+.footer {
+  background: #d96811;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.inner {
+  font-size: 1.2rem;
+  width: min(1080px, 100% - 12px * 2);
+}

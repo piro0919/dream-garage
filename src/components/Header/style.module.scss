@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  gap: 48px;
+  width: min(1080px, 100% - 12px * 2);
+  @media (width < 740px) {
+    justify-content: space-between;
+  }
+}
+
+.nav {
+  @media (width < 740px) {
+    display: none;
+  }
+}
+
+.h1 {
+  color: #d96811;
+  font-size: 3.6rem;
+  margin-top: -1.2rem;
+}
+
+.list {
+  display: flex;
+  font-size: 1.6rem;
+  gap: 48px;
+}
+
+.link {
+  transition: 250ms;
+}
+
+.active {
+  color: #d96811;
+}
+
+.button {
+  background: #d96811;
+  border-radius: 4px;
+  padding: 12px 9px;
+}

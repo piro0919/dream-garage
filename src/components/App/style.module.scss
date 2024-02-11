@@ -1,0 +1,37 @@
+.wrapper {
+  align-content: center;
+  align-items: center;
+  display: grid;
+  gap: 24px;
+  height: 100dvh;
+  justify-content: center;
+  justify-items: center;
+}
+
+.h1Wrapper {
+  position: relative;
+}
+
+.h1,
+.highlight {
+  background-clip: text;
+  background-image: url("/logo-background.jpg");
+  background-position: center;
+  background-size: cover;
+  // 最大横幅 1080 px 程度
+  font-size: min(16.5dvw, 21rem);
+  margin-top: min(-5.5dvw, 7rem);
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight {
+  filter: brightness(1.5);
+  position: absolute;
+  top: 0;
+}
+
+.list {
+  display: flex;
+  font-size: 1.8rem;
+  gap: 48px;
+}

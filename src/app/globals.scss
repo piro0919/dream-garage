@@ -1,0 +1,78 @@
+html {
+  @media (width < 740px) {
+    font-size: 56.25%;
+  }
+  @media (740px <= width) {
+    font-size: 62.5%;
+  }
+}
+
+:root {
+  --units: 2.4dvh;
+  --lines: #fee;
+  --gp-ln: 50% / calc(var(--units) * 10) calc(var(--units) * 5);
+  --gp-cn: 50% / calc(var(--units) * 5) calc(var(--units) * 5);
+}
+
+body {
+  background:
+    repeating-conic-gradient(
+        from 90deg at 95% 55%,
+        var(--lines) 0% 25%,
+        transparent 0% 100%
+      )
+      var(--gp-cn),
+    repeating-linear-gradient(
+        180deg,
+        var(--lines) 0 5%,
+        transparent 0 50%,
+        var(--lines) 0 55%,
+        #fff 0 100%
+      )
+      var(--gp-ln),
+    repeating-linear-gradient(
+        90deg,
+        #fff 0 47.5%,
+        var(--lines) 0 50%,
+        #fff 0 97.5%,
+        var(--lines) 0 100%
+      )
+      var(--gp-ln);
+  color: #333;
+  font-family: arial, sans-serif;
+}
+
+* {
+  outline: none;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+canvas,
+img,
+picture,
+svg,
+video {
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-style: italic;
+  height: auto;
+  max-width: 100%;
+  pointer-events: none;
+  shape-margin: 1rem;
+  vertical-align: middle;
+}
+
+input,
+textarea {
+  min-width: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}

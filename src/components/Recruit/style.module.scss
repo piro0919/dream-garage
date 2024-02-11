@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  width: min(1080px, 100% - 12px * 2);
+}

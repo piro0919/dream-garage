@@ -1,0 +1,108 @@
+.wrapper {
+  display: grid;
+  gap: 120px;
+  padding: 24px 0 0;
+}
+
+.articleWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.article {
+  align-items: center;
+  display: grid;
+  gap: 0 60px;
+  width: min(1080px, 100% - 12px * 2);
+}
+
+.article[data-article="corporate-philosophy"] {
+  @media (740px <= width) {
+    grid-template: auto / 3fr 2fr;
+  }
+}
+
+.textsWrapper {
+  display: grid;
+  gap: 36px;
+  padding-bottom: 36px;
+}
+
+.h2Wrapper {
+  text-align: center;
+}
+
+.h2 {
+  font-size: 3.2rem;
+}
+
+.corporatePhilosophyDescription {
+  font-size: 1.8rem;
+}
+
+.thumbnailBlock {
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+
+.thumbnail {
+  object-fit: contain;
+}
+
+.articleWrapper:has([data-article="about-us"]) {
+  background-image: url("/logo-background.jpg");
+  background-size: cover;
+  color: #fff;
+  padding: 120px 0;
+  position: relative;
+}
+
+.articleWrapper:has([data-article="about-us"])::before {
+  backdrop-filter: blur(2px);
+  background: rgba(#000, 0.25);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.article[data-article="about-us"] {
+  position: relative;
+  @media (width < 740px) {
+    grid-template: auto auto / auto;
+  }
+  @media (740px <= width) {
+    grid-template: auto / 2fr 3fr;
+  }
+}
+
+.article[data-article="about-us"] .thumbnailBlock {
+  @media (width < 740px) {
+    grid-row: 2 / 3;
+  }
+}
+
+.article[data-article="about-us"] .textsWrapper {
+  @media (width < 740px) {
+    grid-row: 1 / 2;
+  }
+}
+
+.mapContainer {
+  inset: 0;
+  position: absolute;
+}
+
+.list {
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  display: grid;
+  font-size: 1.6rem;
+  grid-template: auto / auto 1fr;
+}
+
+.term,
+.description {
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  padding: 12px;
+}

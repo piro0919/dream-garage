@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0 120px;
+}
+
+.inner {
+  display: grid;
+  gap: 36px;
+  width: min(640px, 100% - 12px * 2);
+}
+
+.h2Wrapper {
+  text-align: center;
+}
+
+.h2 {
+  font-size: 3.2rem;
+}
+
+.formWrapper {
+  background: #fee;
+  border-radius: 4px;
+}
+
+.formInner {
+  display: grid;
+  gap: 36px;
+  @media (width < 740px) {
+    padding: 48px 12px;
+  }
+  @media (740px <= width) {
+    padding: 48px;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.label {
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.input,
+.textarea {
+  background: #fff;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  padding: 8px 12px;
+}
+
+.errorMessage {
+  color: #d96811;
+  font-size: 1.4rem;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background: #fff;
+  border: 2px solid #d96811;
+  border-radius: 4px;
+  color: #d96811;
+  font-size: 1.6rem;
+  font-weight: 900;
+  padding: 8px 0;
+  transition: 250ms;
+  width: 120px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
