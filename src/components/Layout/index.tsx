@@ -1,6 +1,7 @@
 "use client";
 import NoSSR from "@mpth/react-no-ssr";
 import usePrevious from "@react-hook/previous";
+import { Nunito_Sans as NunitoSans } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
@@ -10,6 +11,9 @@ import { useBoolean } from "usehooks-ts";
 import Footer from "../Footer";
 import Header from "../Header";
 import styles from "./style.module.scss";
+
+// eslint-disable-next-line new-cap
+const nunitoSans = NunitoSans({ subsets: ["latin"], weight: "700" });
 
 export type LayoutProps = {
   children: ReactNode;
@@ -60,7 +64,7 @@ export default function Layout({
           onClose={offIsOpen}
           open={isOpen}
         >
-          <ul className={styles.list}>
+          <ul className={`${styles.list} ${nunitoSans.className}`}>
             <li>
               <Link
                 className={`${styles.link} ${pathname === "/about" ? styles.active : ""}`}
