@@ -16,9 +16,8 @@ export default function Recruit(): JSX.Element {
             内勤営業・カウンターセールス
             携帯ショップ・家電量販店内携帯コーナーでの内勤業務
           </h3>
-          <p className={styles.detail}>
-            携帯ショップ、家電量販店の携帯コーナースタッフの募集です。
-            <br />
+          <div className={styles.detail}>
+            <p>携帯ショップ、家電量販店の携帯コーナースタッフの募集です。</p>
             <ul className={styles.list2}>
               <li>
                 お店に来たお客様への通信料案内、スマートフォンや光回線の販売・契約
@@ -28,16 +27,18 @@ export default function Recruit(): JSX.Element {
               </li>
               <li>社内での各種業務</li>
             </ul>
-            携帯ショップでお客様への様々な案内やご提案、販売をするお仕事です。
-            <br />
-            経験者大歓迎！
-            <br />
-            初心者大歓迎！
-            <br />
-            初めての方でもしっかりしたカリキュラムでステップアップ！今後のスキルアップにしっかり繋がります！
-            <br />
-            ぜひお気軽にご応募してくださいね。
-          </p>
+            <p>
+              携帯ショップでお客様への様々な案内やご提案、販売をするお仕事です。
+              <br />
+              経験者大歓迎！
+              <br />
+              初心者大歓迎！
+              <br />
+              初めての方でもしっかりしたカリキュラムでステップアップ！今後のスキルアップにしっかり繋がります！
+              <br />
+              ぜひお気軽にご応募してくださいね。
+            </p>
+          </div>
           <dl className={styles.list}>
             <dt className={styles.term}>雇用形態</dt>
             <dd className={styles.description}>正社員</dd>

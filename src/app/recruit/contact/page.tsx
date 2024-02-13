@@ -4,7 +4,6 @@ import RecruitContact, {
 import transporter from "@/lib/transporter";
 
 export default function Page(): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/require-await
   const sendEmail: RecruitContactProps["sendEmail"] = async ({
     address,
     birthDate,

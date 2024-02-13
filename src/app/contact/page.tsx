@@ -2,7 +2,6 @@ import Contact, { ContactProps } from "@/components/Contact";
 import transporter from "@/lib/transporter";
 
 export default function Page(): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/require-await
   const sendEmail: ContactProps["sendEmail"] = async ({
     email,
     name,

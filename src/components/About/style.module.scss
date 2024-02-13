@@ -1,7 +1,7 @@
 .wrapper {
   display: grid;
   gap: 120px;
-  padding: 48px 0 0;
+  padding: 48px 0 120px;
 }
 
 .articleWrapper {
@@ -105,4 +105,27 @@
   border-bottom: 1px solid #fff;
   border-right: 1px solid #fff;
   padding: 12px;
+}
+
+.article[data-article="member"] {
+  display: grid;
+  gap: 36px;
+}
+
+.list2 {
+  display: grid;
+  gap: 48px 24px;
+  grid-template: auto / repeat(4, 1fr);
+}
+
+.name {
+  font-size: 1.8rem;
+  padding: 18px 0 0;
+  text-align: center;
+}
+
+.role {
+  font-size: 1.2rem;
+  padding: 12px 0 0;
+  text-align: center;
 }

@@ -12,26 +12,28 @@ const nunitoSans = NunitoSans({ subsets: ["latin"], weight: "700" });
 export default function App(): JSX.Element {
   return (
     <div className={styles.wrapper}>
+      <h1 className={styles.h1}>DreamGarage</h1>
       <motion.div
         animate={{ scale: 1 }}
-        className={styles.h1Wrapper}
+        className={styles.logoWrapper}
         initial={{ scale: 0.9 }}
         transition={{
           duration: 1,
           ease: "linear",
         }}
       >
-        <motion.h1
+        <motion.div
           animate={{ opacity: 1 }}
-          className={`${styles.h1} ${norican.className}`}
+          className={`${styles.logo} ${norican.className}`}
           initial={{ opacity: 0 }}
           transition={{
             duration: 1,
             ease: "easeIn",
           }}
         >
-          DreamGarage
-        </motion.h1>
+          <span className={styles.upper}>D</span>ream
+          <span className={styles.upper}>G</span>arage
+        </motion.div>
         <motion.div
           animate={{
             clipPath: "polygon(125% 0%, 150% 0%, 125% 100%, 100% 100%)",
@@ -46,7 +48,8 @@ export default function App(): JSX.Element {
             ease: "linear",
           }}
         >
-          DreamGarage
+          <span className={styles.upper}>D</span>ream
+          <span className={styles.upper}>G</span>arage
         </motion.div>
         <motion.div
           animate={{
@@ -62,7 +65,8 @@ export default function App(): JSX.Element {
             ease: "linear",
           }}
         >
-          DreamGarage
+          <span className={styles.upper}>D</span>ream
+          <span className={styles.upper}>G</span>arage
         </motion.div>
       </motion.div>
       <motion.nav

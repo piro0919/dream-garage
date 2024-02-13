@@ -78,6 +78,50 @@ export default function About(): JSX.Element {
           </div>
         </article>
       </div>
+      <div className={styles.articleWrapper}>
+        <article className={styles.article} data-article="member">
+          <div className={styles.h2Wrapper}>
+            <h2 className={styles.h2}>メンバー</h2>
+          </div>
+          <ul className={styles.list2}>
+            <li>
+              <div className={styles.thumbnailBlock}>
+                <Image alt="比嘉 祥平" fill={true} src="/user-sample.jpeg" />
+              </div>
+              <div className={styles.name}>比嘉 祥平</div>
+              <div className={styles.role}>代表取締役</div>
+            </li>
+            <li>
+              <div className={styles.thumbnailBlock}>
+                <Image alt="比嘉 祥平" fill={true} src="/user-sample.jpeg" />
+              </div>
+              <div className={styles.name}>比嘉 祥平</div>
+              <div className={styles.role}>代表取締役</div>
+            </li>
+            <li>
+              <div className={styles.thumbnailBlock}>
+                <Image alt="比嘉 祥平" fill={true} src="/user-sample.jpeg" />
+              </div>
+              <div className={styles.name}>比嘉 祥平</div>
+              <div className={styles.role}>代表取締役</div>
+            </li>
+            <li>
+              <div className={styles.thumbnailBlock}>
+                <Image alt="比嘉 祥平" fill={true} src="/user-sample.jpeg" />
+              </div>
+              <div className={styles.name}>比嘉 祥平</div>
+              <div className={styles.role}>代表取締役</div>
+            </li>
+            <li>
+              <div className={styles.thumbnailBlock}>
+                <Image alt="比嘉 祥平" fill={true} src="/user-sample.jpeg" />
+              </div>
+              <div className={styles.name}>比嘉 祥平</div>
+              <div className={styles.role}>代表取締役</div>
+            </li>
+          </ul>
+        </article>
+      </div>
     </div>
   );
 }

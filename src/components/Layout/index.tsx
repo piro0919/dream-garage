@@ -1,15 +1,27 @@
 "use client";
 import { useJsApiLoader } from "@react-google-maps/api";
+import i18next from "i18next";
 import { usePathname } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
 import { ReactNode, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { useBoolean } from "usehooks-ts";
+import z from "zod";
+import { zodI18nMap } from "zod-i18n-map";
+import translation from "zod-i18n-map/locales/ja/zod.json";
 import Drawer from "../Drawer";
 import Footer from "../Footer";
 import Header from "../Header";
 import styles from "./style.module.scss";
 import GoogleMapContext from "@/contexts/GoogleMapContext";
+
+void i18next.init({
+  lng: "ja",
+  resources: {
+    ja: { zod: translation },
+  },
+});
+z.setErrorMap(zodI18nMap);
 
 export type LayoutProps = {
   children: ReactNode;
@@ -27,6 +39,7 @@ export default function Layout({
   } = useBoolean(false);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+    language: "ja",
   });
   const [pathname, setPathname] = useState(serverPathname);
   const clientPathname = usePathname();
