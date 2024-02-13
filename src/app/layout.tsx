@@ -11,7 +11,8 @@ import Layout from "@/components/Layout";
 const sawarabiGothic = SawarabiGothic({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  description: "",
+  description:
+    "DreamGarageは、お客様に最高のサービスを提供し、同時に個々の興味や趣味を大切にすることで、業界での信頼と評価を得ることを目指しています。私たちは常に成長し、変化し続ける通信業界で、お客様にとって最高のパートナーであり続けます。",
   title: "合同会社DreamGarage",
 };
 

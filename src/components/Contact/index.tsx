@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import i18next from "i18next";
 import { ReactNode } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import TextareaAutosize from "react-textarea-autosize";
 import z from "zod";
 import { zodI18nMap } from "zod-i18n-map";
@@ -19,10 +20,9 @@ void i18next.init({
 z.setErrorMap(zodI18nMap);
 
 const schema = z.object({
-  content: z.string().min(1),
   email: z.string().min(1).email(),
   name: z.string().min(1),
-  subject: z.string().min(1),
+  text: z.string().min(1),
 });
 
 type FieldTypes = z.infer<typeof schema>;
@@ -38,16 +38,19 @@ export default function Contact({ sendEmail }: ContactProps): JSX.Element {
     register,
   } = useForm<FieldTypes>({
     defaultValues: {
-      content: "",
       email: "",
       name: "",
-      subject: "",
+      text: "",
     },
     resolver: zodResolver(schema),
     shouldUnregister: false,
   });
   const action = handleSubmit(async (data) => {
-    await sendEmail(data);
+    await toast.promise(sendEmail(data), {
+      error: "メッセージの送信に失敗しました",
+      loading: "送信しています…",
+      success: "メッセージを送信しました",
+    });
   });
 
   return (
@@ -99,35 +102,18 @@ export default function Contact({ sendEmail }: ContactProps): JSX.Element {
                 />
               </div>
               <div className={styles.field}>
-                <label className={styles.label} htmlFor="subject">
-                  件名<abbr>*</abbr>
-                </label>
-                <input
-                  {...register("subject")}
-                  className={styles.input}
-                  id="subject"
-                />
-                <ErrorMessage
-                  errors={errors}
-                  name="subject"
-                  render={({ message }): ReactNode => (
-                    <p className={styles.errorMessage}>{message}</p>
-                  )}
-                />
-              </div>
-              <div className={styles.field}>
-                <label className={styles.label} htmlFor="content">
+                <label className={styles.label} htmlFor="text">
                   お問い合わせ内容<abbr>*</abbr>
                 </label>
                 <TextareaAutosize
-                  {...register("content")}
+                  {...register("text")}
                   className={styles.textarea}
-                  id="content"
+                  id="text"
                   minRows={4}
                 />
                 <ErrorMessage
                   errors={errors}
-                  name="content"
+                  name="text"
                   render={({ message }): ReactNode => (
                     <p className={styles.errorMessage}>{message}</p>
                   )}

@@ -2,8 +2,10 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import i18next from "i18next";
+import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import TextareaAutosize from "react-textarea-autosize";
 import z from "zod";
 import { zodI18nMap } from "zod-i18n-map";
@@ -21,6 +23,7 @@ z.setErrorMap(zodI18nMap);
 const schema = z.object({
   address: z.string().min(1),
   birthDate: z.string().min(1),
+  consultationAndAppeal: z.string(),
   currentJob: z.string().min(1),
   driversLicense: z.boolean(),
   email: z.string().min(1).email(),
@@ -31,6 +34,7 @@ const schema = z.object({
   otherQualifications: z.string(),
   sex: z.string(),
   tel: z.string().min(1),
+  workHistory: z.string().min(1),
 });
 
 type FieldTypes = z.infer<typeof schema>;
@@ -50,6 +54,7 @@ export default function RecruitContact({
     defaultValues: {
       address: "",
       birthDate: "",
+      consultationAndAppeal: "",
       currentJob: "",
       driversLicense: false,
       email: "",
@@ -60,19 +65,27 @@ export default function RecruitContact({
       otherQualifications: "",
       sex: "",
       tel: "",
+      workHistory: "",
     },
     resolver: zodResolver(schema),
     shouldUnregister: false,
   });
+  const router = useRouter();
   const action = handleSubmit(async (data) => {
-    await sendEmail(data);
+    await toast.promise(sendEmail(data), {
+      error: "メッセージの送信に失敗しました",
+      loading: "送信しています…",
+      success: "メッセージを送信しました",
+    });
+
+    router.push("/recruit");
   });
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.h2Wrapper}>
-          <h2 className={styles.h2}>お問い合わせ</h2>
+          <h2 className={styles.h2}>応募フォーム</h2>
         </div>
         <div className={styles.formWrapper}>
           <form
@@ -195,12 +208,7 @@ export default function RecruitContact({
                 <label className={styles.label} htmlFor="tel">
                   電話番号<abbr>*</abbr>
                 </label>
-                <input
-                  {...register("tel")}
-                  className={styles.input}
-                  id="tel"
-                  type="tel"
-                />
+                <input {...register("tel")} className={styles.input} id="tel" />
                 <ErrorMessage
                   errors={errors}
                   name="tel"
@@ -217,7 +225,6 @@ export default function RecruitContact({
                   {...register("email")}
                   className={styles.input}
                   id="email"
-                  type="email"
                 />
                 <ErrorMessage
                   errors={errors}
@@ -229,25 +236,27 @@ export default function RecruitContact({
               </div>
               <div className={styles.field}>
                 <label className={styles.label}>性別</label>
-                <div>
-                  <input
-                    {...register("sex")}
-                    className={styles.input}
-                    id="man"
-                    type="radio"
-                    value="男性"
-                  />
-                  <label htmlFor="man">男性</label>
-                </div>
-                <div>
-                  <input
-                    {...register("sex")}
-                    className={styles.input}
-                    id="woman"
-                    type="radio"
-                    value="女性"
-                  />
-                  <label htmlFor="woman">女性</label>
+                <div className={styles.radioFieldsWrapper}>
+                  <div className={styles.radioField}>
+                    <input
+                      {...register("sex")}
+                      className={styles.input}
+                      id="man"
+                      type="radio"
+                      value="男性"
+                    />
+                    <label htmlFor="man">男性</label>
+                  </div>
+                  <div className={styles.radioField}>
+                    <input
+                      {...register("sex")}
+                      className={styles.input}
+                      id="woman"
+                      type="radio"
+                      value="女性"
+                    />
+                    <label htmlFor="woman">女性</label>
+                  </div>
                 </div>
                 <ErrorMessage
                   errors={errors}
@@ -257,7 +266,7 @@ export default function RecruitContact({
                   )}
                 />
               </div>
-              <hr />
+              <hr className={styles.hr} />
               <div className={styles.field}>
                 <label className={styles.label} htmlFor="finalEducation">
                   最終学歴<abbr>*</abbr>
@@ -287,7 +296,7 @@ export default function RecruitContact({
                 </select>
                 <ErrorMessage
                   errors={errors}
-                  name="currentJob"
+                  name="finalEducation"
                   render={({ message }): ReactNode => (
                     <p className={styles.errorMessage}>{message}</p>
                   )}
@@ -318,14 +327,14 @@ export default function RecruitContact({
                 <label className={styles.label} htmlFor="driversLicense">
                   普通自動車免許<abbr>*</abbr>
                 </label>
-                <div>
+                <div className={styles.checkboxField}>
                   <input
                     {...register("driversLicense")}
                     className={styles.input}
                     id="driversLicense"
                     type="checkbox"
                   />
-                  <label htmlFor="exist">あり</label>
+                  <label htmlFor="driversLicense">あり</label>
                 </div>
                 <ErrorMessage
                   errors={errors}
@@ -348,6 +357,43 @@ export default function RecruitContact({
                 <ErrorMessage
                   errors={errors}
                   name="otherQualifications"
+                  render={({ message }): ReactNode => (
+                    <p className={styles.errorMessage}>{message}</p>
+                  )}
+                />
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="workHistory">
+                  職務履歴（社名・職種と各年数）<abbr>*</abbr>
+                </label>
+                <TextareaAutosize
+                  {...register("workHistory")}
+                  className={styles.textarea}
+                  id="workHistory"
+                  minRows={4}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="workHistory"
+                  render={({ message }): ReactNode => (
+                    <p className={styles.errorMessage}>{message}</p>
+                  )}
+                />
+              </div>
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="consultationAndAppeal">
+                  相談やアピールなど
+                </label>
+                <TextareaAutosize
+                  {...register("consultationAndAppeal")}
+                  className={styles.textarea}
+                  id="consultationAndAppeal"
+                  minRows={4}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="consultationAndAppeal"
                   render={({ message }): ReactNode => (
                     <p className={styles.errorMessage}>{message}</p>
                   )}

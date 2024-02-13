@@ -57,6 +57,24 @@
   font-size: 1.4rem;
 }
 
+.radioFieldsWrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.radioField,
+.checkboxField {
+  display: flex;
+  font-size: 1.6rem;
+  gap: 4px;
+}
+
+.hr {
+  background: #fff;
+  border: 0;
+  height: 2px;
+}
+
 .formFooter {
   display: flex;
   justify-content: center;

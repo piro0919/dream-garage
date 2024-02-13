@@ -3,27 +3,3 @@
   grid-template: auto 1fr auto / auto;
   min-height: 100dvh;
 }
-
-.drawer {
-  align-items: center;
-  display: flex;
-  height: auto !important;
-  justify-content: center;
-  padding: 72px 0;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.8rem;
-  gap: 48px;
-  text-align: center;
-}
-
-.link {
-  transition: 250ms;
-}
-
-.active {
-  color: #d96811;
-}

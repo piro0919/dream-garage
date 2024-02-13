@@ -1,9 +1,10 @@
 "use client";
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { useWindowSize } from "usehooks-ts";
 import styles from "./style.module.scss";
+import GoogleMapContext from "@/contexts/GoogleMapContext";
 
 export default function About(): JSX.Element {
   const position = useMemo(
@@ -14,6 +15,7 @@ export default function About(): JSX.Element {
     [],
   );
   const { width } = useWindowSize();
+  const { isLoaded } = useContext(GoogleMapContext);
 
   return (
     <div className={styles.wrapper}>
@@ -42,14 +44,16 @@ export default function About(): JSX.Element {
       <div className={styles.articleWrapper}>
         <article className={styles.article} data-article="about-us">
           <div className={styles.thumbnailBlock}>
-            <GoogleMap
-              center={position}
-              key={width}
-              mapContainerClassName={styles.mapContainer}
-              zoom={16}
-            >
-              <MarkerF position={position} visible={true} />
-            </GoogleMap>
+            {isLoaded ? (
+              <GoogleMap
+                center={position}
+                key={width}
+                mapContainerClassName={styles.mapContainer}
+                zoom={16}
+              >
+                <MarkerF position={position} visible={true} />
+              </GoogleMap>
+            ) : null}
           </div>
           <div className={styles.textsWrapper}>
             <div className={styles.h2Wrapper}>
