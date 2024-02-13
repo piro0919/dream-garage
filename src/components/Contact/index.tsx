@@ -33,7 +33,7 @@ export type ContactProps = {
 
 export default function Contact({ sendEmail }: ContactProps): JSX.Element {
   const {
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors, isSubmitting },
     handleSubmit,
     register,
   } = useForm<FieldTypes>({
@@ -49,8 +49,6 @@ export default function Contact({ sendEmail }: ContactProps): JSX.Element {
   const action = handleSubmit(async (data) => {
     await sendEmail(data);
   });
-
-  console.log(isSubmitting);
 
   return (
     <div className={styles.wrapper}>
@@ -138,7 +136,7 @@ export default function Contact({ sendEmail }: ContactProps): JSX.Element {
               <div className={styles.formFooter}>
                 <button
                   className={styles.button}
-                  disabled={isSubmitting || !isValid}
+                  disabled={isSubmitting}
                   type="submit"
                 >
                   送信

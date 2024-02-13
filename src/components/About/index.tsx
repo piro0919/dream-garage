@@ -1,5 +1,5 @@
 "use client";
-import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import Image from "next/image";
 import { useMemo } from "react";
 import { useWindowSize } from "usehooks-ts";
@@ -42,18 +42,14 @@ export default function About(): JSX.Element {
       <div className={styles.articleWrapper}>
         <article className={styles.article} data-article="about-us">
           <div className={styles.thumbnailBlock}>
-            <LoadScript
-              googleMapsApiKey="AIzaSyD30NKPWdLyOlA7_UEaUaxqJIFLEHKnNJU"
+            <GoogleMap
+              center={position}
               key={width}
+              mapContainerClassName={styles.mapContainer}
+              zoom={16}
             >
-              <GoogleMap
-                center={position}
-                mapContainerClassName={styles.mapContainer}
-                zoom={16}
-              >
-                <MarkerF position={position} visible={true} />
-              </GoogleMap>
-            </LoadScript>
+              <MarkerF position={position} visible={true} />
+            </GoogleMap>
           </div>
           <div className={styles.textsWrapper}>
             <div className={styles.h2Wrapper}>
@@ -68,12 +64,12 @@ export default function About(): JSX.Element {
               </dd>
               <dt className={styles.term}>設立</dt>
               <dd className={styles.description}>2021年8月30日</dd>
+              <dt className={styles.term}>代表者</dt>
+              <dd className={styles.description}>比嘉 祥平</dd>
               <dt className={styles.term}>事業内容</dt>
               <dd className={styles.description}>
                 通信業での接客、販売、契約事務（携帯やインターネットの契約）
               </dd>
-              <dt className={styles.term}>代表者</dt>
-              <dd className={styles.description}>比嘉 祥平</dd>
             </dl>
           </div>
         </article>

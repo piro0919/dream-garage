@@ -1,5 +1,6 @@
 "use client";
 import NoSSR from "@mpth/react-no-ssr";
+import { LoadScript } from "@react-google-maps/api";
 import usePrevious from "@react-hook/previous";
 import { Nunito_Sans as NunitoSans } from "next/font/google";
 import Link from "next/link";
@@ -46,7 +47,7 @@ export default function Layout({
   }, [offIsOpen, pathname, prevPathname]);
 
   return (
-    <>
+    <LoadScript googleMapsApiKey="AIzaSyD30NKPWdLyOlA7_UEaUaxqJIFLEHKnNJU">
       {pathname === "/" ? (
         children
       ) : (
@@ -92,6 +93,6 @@ export default function Layout({
           </ul>
         </Drawer>
       </NoSSR>
-    </>
+    </LoadScript>
   );
 }

@@ -1,8 +1,83 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  padding: 24px 0 120px;
 }
 
 .inner {
+  display: grid;
+  gap: 36px;
   width: min(1080px, 100% - 12px * 2);
+}
+
+.h2Wrapper {
+  text-align: center;
+}
+
+.h2 {
+  font-size: 3.2rem;
+}
+
+.article {
+  background: #fee;
+  border-radius: 4px;
+  display: grid;
+  gap: 24px;
+  @media (width < 740px) {
+    padding: 48px 12px;
+  }
+  @media (740px <= width) {
+    padding: 48px;
+  }
+}
+
+.h3 {
+  font-size: 2.4rem;
+}
+
+.detail {
+  font-size: 1.6rem;
+}
+
+.list2 {
+  list-style-type: "- ";
+  padding-left: 1.6rem;
+}
+
+.detail .list2 {
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.list {
+  background: #fff;
+  border-left: 2px solid #d96811;
+  border-top: 2px solid #d96811;
+  display: grid;
+  font-size: 1.6rem;
+  grid-template: auto / auto 1fr;
+}
+
+.term,
+.description {
+  border-bottom: 2px solid #d96811;
+  border-right: 2px solid #d96811;
+  padding: 12px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background: #fff;
+  border: 2px solid #d96811;
+  border-radius: 4px;
+  color: #d96811;
+  font-size: 1.6rem;
+  font-weight: 900;
+  padding: 8px 0;
+  transition: 250ms;
+  width: 140px;
 }
