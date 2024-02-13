@@ -43,8 +43,8 @@ export default function About(): JSX.Element {
           <div className={styles.thumbnailBlock}>
             <MapContainer
               center={[31.735924, 130.625042]}
+              className={styles.mapContainer}
               scrollWheelZoom={false}
-              style={{ height: "100%", width: "100%" }}
               zoom={16}
             >
               <TileLayer
@@ -52,7 +52,7 @@ export default function About(): JSX.Element {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={[31.735924, 130.625042]}>
-                <Popup>合同会社DreamGarage</Popup>
+                <Popup className={styles.popup}>合同会社DreamGarage</Popup>
               </Marker>
             </MapContainer>
           </div>
