@@ -114,8 +114,13 @@
 
 .list2 {
   display: grid;
-  gap: 48px 24px;
-  grid-template: auto / repeat(4, 1fr);
+  gap: 48px 12px;
+  @media (width < 740px) {
+    grid-template: auto / repeat(2, 1fr);
+  }
+  @media (740px <= width) {
+    grid-template: auto / repeat(4, 1fr);
+  }
 }
 
 .name {

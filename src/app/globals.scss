@@ -7,14 +7,11 @@ html {
   }
 }
 
-:root {
+body {
   --units: 2.4dvh;
   --lines: #fee;
   --gp-ln: 50% / calc(var(--units) * 10) calc(var(--units) * 5);
   --gp-cn: 50% / calc(var(--units) * 5) calc(var(--units) * 5);
-}
-
-body {
   background:
     repeating-conic-gradient(
         from 90deg at 95% 55%,
