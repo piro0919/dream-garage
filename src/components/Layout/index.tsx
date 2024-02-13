@@ -1,5 +1,4 @@
 "use client";
-import { useJsApiLoader } from "@react-google-maps/api";
 import i18next from "i18next";
 import { usePathname } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
@@ -13,7 +12,6 @@ import Drawer from "../Drawer";
 import Footer from "../Footer";
 import Header from "../Header";
 import styles from "./style.module.scss";
-import GoogleMapContext from "@/contexts/GoogleMapContext";
 
 void i18next.init({
   lng: "ja",
@@ -37,10 +35,6 @@ export default function Layout({
     setTrue: onIsOpen,
     value: isOpen,
   } = useBoolean(false);
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
-    language: "ja",
-  });
   const [pathname, setPathname] = useState(serverPathname);
   const clientPathname = usePathname();
 
@@ -49,7 +43,7 @@ export default function Layout({
   }, [clientPathname]);
 
   return (
-    <GoogleMapContext.Provider value={{ isLoaded }}>
+    <>
       {pathname === "/" ? (
         children
       ) : (
@@ -69,6 +63,6 @@ export default function Layout({
           },
         }}
       />
-    </GoogleMapContext.Provider>
+    </>
   );
 }

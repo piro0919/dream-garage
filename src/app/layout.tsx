@@ -1,4 +1,5 @@
 // eslint-disable-next-line filenames/match-exported
+import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
 import { Sawarabi_Gothic as SawarabiGothic } from "next/font/google";
 import { headers } from "next/headers";

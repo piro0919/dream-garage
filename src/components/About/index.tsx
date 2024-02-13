@@ -1,22 +1,19 @@
 "use client";
-import { GoogleMap, MarkerF } from "@react-google-maps/api";
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import Image from "next/image";
-import { useContext, useMemo } from "react";
-import { useWindowSize } from "usehooks-ts";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import styles from "./style.module.scss";
-import GoogleMapContext from "@/contexts/GoogleMapContext";
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x.src,
+  iconUrl: markerIcon.src,
+  shadowUrl: markerShadow.src,
+});
 
 export default function About(): JSX.Element {
-  const position = useMemo(
-    () => ({
-      lat: 31.735924,
-      lng: 130.625042,
-    }),
-    [],
-  );
-  const { width } = useWindowSize();
-  const { isLoaded } = useContext(GoogleMapContext);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.articleWrapper}>
@@ -44,16 +41,20 @@ export default function About(): JSX.Element {
       <div className={styles.articleWrapper}>
         <article className={styles.article} data-article="about-us">
           <div className={styles.thumbnailBlock}>
-            {isLoaded ? (
-              <GoogleMap
-                center={position}
-                key={width}
-                mapContainerClassName={styles.mapContainer}
-                zoom={16}
-              >
-                <MarkerF position={position} visible={true} />
-              </GoogleMap>
-            ) : null}
+            <MapContainer
+              center={[31.735924, 130.625042]}
+              scrollWheelZoom={false}
+              style={{ height: "100%", width: "100%" }}
+              zoom={16}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[31.735924, 130.625042]}>
+                <Popup>合同会社DreamGarage</Popup>
+              </Marker>
+            </MapContainer>
           </div>
           <div className={styles.textsWrapper}>
             <div className={styles.h2Wrapper}>
