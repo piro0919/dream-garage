@@ -19,7 +19,7 @@
     "react-modern-drawer": "1.2.2",
     "react-textarea-autosize": "8.5.3",
     "ress": "5.0.2",
-    "usehooks-ts": "2.16.0",
+    "usehooks-ts": "3.0.1",
     "zod": "3.22.4",
     "zod-i18n-map": "2.27.0"
   },
