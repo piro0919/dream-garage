@@ -4,7 +4,7 @@
     "@hookform/resolvers": "3.3.4",
     "@mpth/react-no-ssr": "1.0.1",
     "@react-hook/previous": "1.0.1",
-    "framer-motion": "11.0.24",
+    "framer-motion": "11.0.25",
     "i18next": "23.10.1",
     "leaflet": "1.9.4",
     "next": "14.1.4",
@@ -19,7 +19,7 @@
     "react-modern-drawer": "1.2.2",
     "react-textarea-autosize": "8.5.3",
     "ress": "5.0.2",
-    "usehooks-ts": "3.0.2",
+    "usehooks-ts": "3.1.0",
     "zod": "3.22.4",
     "zod-i18n-map": "2.27.0"
   },
