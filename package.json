@@ -4,8 +4,8 @@
     "@hookform/resolvers": "3.3.4",
     "@mpth/react-no-ssr": "1.0.1",
     "@react-hook/previous": "1.0.1",
-    "framer-motion": "11.1.7",
-    "i18next": "23.11.3",
+    "framer-motion": "11.1.9",
+    "i18next": "23.11.4",
     "leaflet": "1.9.4",
     "next": "14.2.3",
     "nextjs-toploader": "1.6.12",
@@ -20,7 +20,7 @@
     "react-textarea-autosize": "8.5.3",
     "ress": "5.0.2",
     "usehooks-ts": "3.1.0",
-    "zod": "3.23.6",
+    "zod": "3.23.8",
     "zod-i18n-map": "2.27.0"
   },
   "devDependencies": {
