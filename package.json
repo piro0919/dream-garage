@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@hookform/error-message": "2.0.1",
-    "@hookform/resolvers": "3.8.0",
+    "@hookform/resolvers": "3.9.0",
     "@mpth/react-no-ssr": "1.0.1",
     "@react-hook/previous": "1.0.1",
     "framer-motion": "11.2.13",
