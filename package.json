@@ -5,7 +5,7 @@
     "@mpth/react-no-ssr": "1.0.1",
     "@react-hook/previous": "1.0.1",
     "framer-motion": "11.11.17",
-    "i18next": "23.16.8",
+    "i18next": "24.0.0",
     "leaflet": "1.9.4",
     "next": "15.0.3",
     "nextjs-toploader": "3.7.15",
