@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "@hookform/error-message": "2.0.1",
-    "@hookform/resolvers": "4.1.1",
+    "@hookform/resolvers": "4.1.2",
     "@mpth/react-no-ssr": "1.0.1",
     "@react-hook/previous": "1.0.1",
     "framer-motion": "12.4.7",
     "i18next": "24.2.2",
     "leaflet": "1.9.4",
-    "next": "15.1.7",
+    "next": "15.2.0",
     "nextjs-toploader": "3.7.15",
     "nodemailer": "6.10.0",
     "react": "^18",
