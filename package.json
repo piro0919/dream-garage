@@ -8,7 +8,7 @@
     "i18next": "24.2.3",
     "leaflet": "1.9.4",
     "next": "15.2.3",
-    "nextjs-toploader": "3.7.15",
+    "nextjs-toploader": "3.8.15",
     "nodemailer": "6.10.0",
     "react": "^18",
     "react-dom": "^18",
