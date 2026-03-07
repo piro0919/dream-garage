@@ -4,7 +4,7 @@
     "@hookform/resolvers": "5.2.2",
     "@mpth/react-no-ssr": "1.0.1",
     "@react-hook/previous": "1.0.1",
-    "framer-motion": "12.35.0",
+    "framer-motion": "12.35.1",
     "i18next": "25.8.14",
     "leaflet": "1.9.4",
     "next": "15.5.12",
